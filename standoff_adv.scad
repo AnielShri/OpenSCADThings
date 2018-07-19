@@ -13,8 +13,8 @@ inset = 1;
 
 
 // calculated vars
-outerCube = [screwDiam + vShell*2 + vShell*2, 	
-			screwDiam + vShell*2 + vShell*2, 		
+outerCube = [screwDiam + vShell*2 + insetDiam,
+			screwDiam + vShell*2 + insetDiam,		
 			spacerHeight];					
 				
 innerCube = [outerCube.x, 			
@@ -25,9 +25,9 @@ innerCube = [outerCube.x,
 $fn=60;	
 
 // start code
-translate([0, 0, (outerCube.y+vShell)/2])
+//translate([0, 0, (outerCube.y+vShell)/2])
 {
-	rotate([270, 00, 0])
+	//rotate([270, 00, 0])
 	{
 		difference()
 		{
@@ -37,7 +37,7 @@ translate([0, 0, (outerCube.y+vShell)/2])
 				cube(outerCube);
 			}
 
-			translate([-innerCube.x/2, -innerCube.y/2 - vShell/2, hShell])
+			translate([-innerCube.x/2, -(innerCube.y + vShell)/2, hShell])
 			{
 				cube(innerCube);
 			}
